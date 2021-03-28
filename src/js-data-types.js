@@ -49,6 +49,7 @@ console.log(formatTime(now));
 document.getElementById("time").innerHTML = formatTime(now);
 
 let cityInput = document.querySelector("#searchbox");
+// let cityInput = document.querySelector(".searchbox");
 console.log(cityInput);
 cityInput.addEventListener("submit", showCityName);
 
@@ -69,6 +70,7 @@ function getTemperature(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute ("src",'http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png')
+  iconElement.setAttribute("alt", response.data.weather[0].description);
   temperatureElement.innerHTML = temperature;
  // (response.data.main.temp);
 
