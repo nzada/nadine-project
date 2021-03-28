@@ -67,8 +67,9 @@ function getTemperature(response) {
   console.log("test");
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
-  //temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
-  temperatureElement.innerHTML = temperature;
+  temperatureElement.innerHTML = Math.round
+ // temperatureElement.innerHTML = temperature;
+  (response.data.main.temp);
 
   //let cityName = document.querySelector(".city");
   //cityName.innerHTML = response.data.name;
