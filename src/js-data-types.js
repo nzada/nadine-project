@@ -66,7 +66,7 @@ function getTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round
   let descriptionElement = document.querySelector("#description");
- // descriptionElement.innerHTML = response.data.weather[0].description;
+  descriptionElement.innerHTML = response.data.weather[0].description;
   temperatureElement.innerHTML = temperature;
  // (response.data.main.temp);
 
