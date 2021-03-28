@@ -15,12 +15,16 @@
 <body>
     <div class="container">
         <div id="weatherApp">
-            <div class="row pt-6 pb-6">
-                <form class="searchbox">
-                    <input type="text" placeholder="Type a city..." autofocus="on" id="city-input"/>
-                    <input class="col-3" type="submit" class="btn btn-primary" value="Search" />
-                </form>
-            </div>
+            <form id="searchbox" class="mb-3">
+                <div class="row">
+                    <div class="col-9">
+                        <input type="search" placeholder="Type a city..." class="form-control" id="city-input" autocomplete="off" />
+                    </div>
+                    <div class="col-3">
+                        <input type="submit" value="Search" class="btn btn-primary w-100" />
+                    </div>
+                </div>
+            </form>
             <!-- Search bar and button -->
 
             <div class="row mt-5">
