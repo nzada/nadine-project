@@ -48,7 +48,7 @@ let now = new Date();
 console.log(formatTime(now));
 document.getElementById("time").innerHTML = formatTime(now);
 
-let cityInput = document.querySelector(".searchbox");
+let cityInput = document.querySelector("#searchbox");
 console.log(cityInput);
 cityInput.addEventListener("submit", showCityName);
 
