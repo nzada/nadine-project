@@ -75,7 +75,7 @@ function getTemperature(response) {
   //let cityName = document.querySelector(".city");
   //cityName.innerHTML = response.data.name;
 }
-function getCity(event) {
+function getCity(response) {
   console.log("Get city test" + response);
   event.preventDefault();
   let searchInput = document.querySelector("#city-input").value;
