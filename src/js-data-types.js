@@ -58,6 +58,9 @@ fahrenheit.addEventListener("click", convertToFahrenheit);
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", convertToCelsius);
 
+let descriptionElement = document.querySelector("#description");
+descriptionElement.innerHTML = response.data.weather[0].description;
+
 // change and show the temperature and the name of the city
 
 function getTemperature(response) {
