@@ -96,6 +96,7 @@ function showPosition(position) {
   let unit = "metric";
   let apiKey = "88b78149fb5d36f32843eb429fe1c6d7";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getTemperature);
 }
 
