@@ -59,7 +59,7 @@ fahrenheit.addEventListener("click", convertToFahrenheit);
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", convertToCelsius);
 
-// change and show the temperature and the name of the city
+// Change the temperature and the name of the city
 
 function getTemperature(response) {
   console.log("test");
@@ -87,6 +87,9 @@ function getCity(response) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=${unit}`;
   apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(getTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(dispalyForecast);
 }
 
 let form = document.querySelector("#city-input");
@@ -103,9 +106,9 @@ function dispalyForecast(response) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="col-2">
-      <h5>
+      <h3>
         ${formatTime(forecast.dt * 1000)}
-      </h5>
+      </h3>
       <img
         src="https://openweathermap.org/img/wn/${
           forecast.weather[0].icon
