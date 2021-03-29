@@ -65,10 +65,10 @@ function getTemperature(response) {
   console.log("test");
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = response.data.weather[0].description;
   let iconElement = document.querySelector("#icon");
+  temperatureElement.innerHTML = Math.round
+  descriptionElement.innerHTML = response.data.weather[0].description;
   iconElement.setAttribute ("src",'https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png');
   iconElement.setAttribute("alt", response.data.weather[0].description);
   temperatureElement.innerHTML = temperature;
@@ -91,6 +91,36 @@ function getCity(response) {
 
 let form = document.querySelector("#city-input");
 form.addEventListener("submit", getCity);
+
+
+// show forecast
+function dispalyForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-2">
+      <h5>
+        ${formatTime(forecast.dt * 1000)}
+      </h5>
+      <img
+        src="https://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png"
+      />
+      <div class="weather-forecast-temperature">
+        <strong>
+          ${Math.round(forecast.main.temp_max)}°
+        </strong>
+        ${Math.round(forecast.main.temp_min)}°
+      </div>
+    </div>
+  `;
+  }
+}
 
 // show geolocation
 function showPosition(position) {
