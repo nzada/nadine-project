@@ -88,8 +88,8 @@ function getCity(response) {
   apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(getTemperature);
 
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(dispalyForecast);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let form = document.querySelector("#city-input");
@@ -97,7 +97,7 @@ form.addEventListener("submit", getCity);
 
 
 // show forecast
-function dispalyForecast(response) {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
