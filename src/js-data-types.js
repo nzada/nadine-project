@@ -83,7 +83,7 @@ function getTemperature(response) {
   let iconElement = document.querySelector("#icon");
   temperatureElement.innerHTML = Math.round
   descriptionElement.innerHTML = response.data.weather[0].description;
-  iconElement.setAttribute ("src",'https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png');
+  iconElement.setAttribute ("src",'http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png');
   iconElement.setAttribute("alt", response.data.weather[0].description);
   temperatureElement.innerHTML = temperature;
  // (response.data.main.temp);
@@ -124,7 +124,7 @@ function displayForecast(response) {
       ${formatHours(forecast.dt * 1000)}
       </h3>
       <img
-        src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+        src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
       />
       <div class="weather-forecast-temperature">
         <strong>
