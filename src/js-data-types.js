@@ -21,6 +21,20 @@ function formatTime(date) {
   return `${day}, ${hour}:${minutes}`;
 }
 
+function formatHours(timestamp){
+    let date = new Date(timestamp);
+    let hour = date.getHours();
+    if (hour < 10) {
+    hour = `0${hours}`;    
+} 
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+    minutes = `0${minutes}`;
+
+    return `${hours}:${minutes}`;
+}
+}
+
 function showCityName(event) {
   console.log("Show city");
   event.preventDefault();
@@ -107,12 +121,10 @@ function displayForecast(response) {
     forecastElement.innerHTML += `
     <div class="col-2">
       <h3>
-        ${formatTime}
+      ${formatHours(forecast.dt * 1000)}
       </h3>
       <img
-        src="https://openweathermap.org/img/wn/${
-          forecast.weather[0].icon
-        }@2x.png"
+        src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
       />
       <div class="weather-forecast-temperature">
         <strong>
