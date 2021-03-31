@@ -83,7 +83,7 @@ function getTemperature(response) {
   let iconElement = document.querySelector("#icon");
   temperatureElement.innerHTML = Math.round
   descriptionElement.innerHTML = response.data.weather[0].description;
-  iconElement.setAttribute ("src",'http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png');
+  iconElement.setAttribute ("src",'https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png');
   iconElement.setAttribute("alt", response.data.weather[0].description);
   temperatureElement.innerHTML = temperature;
  // (response.data.main.temp);
@@ -98,11 +98,11 @@ function getCity(response) {
   let unit = "metric";
   //let h1 = document.querySelector("h1");
   let apiKey = "88b78149fb5d36f32843eb429fe1c6d7";
-  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=${unit}`;
-  apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=${unit}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=${unit}`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(getTemperature);
 
-  apiUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${apiKey}&units=${unit}`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -124,7 +124,7 @@ function displayForecast(response) {
       ${formatHours(forecast.dt * 1000)}
       </h3>
       <img
-        src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+        src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
       />
       <div class="weather-forecast-temperature">
         <strong>
@@ -145,11 +145,11 @@ function showPosition(position) {
   console.log(lon);
   let unit = "metric";
   let apiKey = "88b78149fb5d36f32843eb429fe1c6d7";
-  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
-  apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(getTemperature);
 
-  apiUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${apiKey}&units=${unit}`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(displayForecast);
 }
 
