@@ -107,7 +107,7 @@ function displayForecast(response) {
     forecastElement.innerHTML += `
     <div class="col-2">
       <h3>
-        ${formatTime(forecast.dt * 1000)}
+        ${formatTime}
       </h3>
       <img
         src="https://openweathermap.org/img/wn/${
@@ -136,6 +136,9 @@ function showPosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
   apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(getTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function getCurrentPosition(event) {
