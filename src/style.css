@@ -54,19 +54,15 @@ li:first-letter {
   text-transform: capitalize;
 }
 
-.weather-forecast img {
-  display: block;
-  margin: 0 auto;
-  height: 48px;
-  width: 48px;
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: #000;
+  opacity: 0.5;
 }
 
 .weather-forecast-temperature {
-  text-align: center;
-  color: rgb(135, 135, 135);
   font-size: 13px;
-  font-weight: 400;
-  height: auto;
   line-height: 15px;
   white-space: nowrap;
 }
