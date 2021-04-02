@@ -64,7 +64,6 @@ document.getElementById("time").innerHTML = formatTime(now);
 
 let cityInput = document.querySelector("#searchbox");
 // let cityInput = document.querySelector(".searchbox");
-console.log(cityInput);
 cityInput.addEventListener("submit", showCityName);
 
 let fahrenheit = document.querySelector("#fahrenheit");
@@ -112,6 +111,7 @@ form.addEventListener("submit", getCity);
 
 // show forecast
 function displayForecast(response) {
+  console.log("Test getting forecast");
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
