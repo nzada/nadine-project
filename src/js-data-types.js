@@ -44,27 +44,32 @@ function showCityName(event) {
   getCity(event);
 }
 
-function setSourceOfTruthTemperature(temperature) {
-  document.querySelector("#temperature").setAttribute('data-celsius-temp', temperature)
+function setSourceOfTruthTemperature(element, temperature) {
+  element.setAttribute('data-celsius-temp', temperature)
 }
 
-function getSourceOfTruthTemperature() {
-  return document.querySelector("#temperature").getAttribute('data-celsius-temp')
+function getSourceOfTruthTemperature(element) {
+  return element.getAttribute('data-celsius-temp')
 }
-
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let temperature = Number(getSourceOfTruthTemperature());
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  let temperatureElements = document.querySelectorAll(".temperatureDisplay");
+  temperatureElements.forEach(element => {
+    let temperature = Number(getSourceOfTruthTemperature(element));
+    element.innerHTML = Math.round((temperature * 9) / 5 + 32);
+    element.innerHTML += "°"
+  });
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let temperature = Number(temperatureElement.innerHTML);
-  temperatureElement.innerHTML = getSourceOfTruthTemperature()
+  let temperatureElements = document.querySelectorAll(".temperatureDisplay");
+  temperatureElements.forEach(element => {
+    let temperature = Number(getSourceOfTruthTemperature(element));
+    element.innerHTML = temperature
+    element.innerHTML += "°"
+  });
 }
 
 let now = new Date();
@@ -94,7 +99,7 @@ function getTemperature(response) {
   iconElement.setAttribute ("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
   temperatureElement.innerHTML = temperature;
-  setSourceOfTruthTemperature(temperature)
+  setSourceOfTruthTemperature(temperatureElement, temperature)
  // (response.data.main.temp);
 
   //let cityName = document.querySelector(".city");
@@ -128,6 +133,8 @@ function displayForecast(response) {
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
+    forecast.main.temp_max = Math.round(forecast.main.temp_max)
+    forecast.main.temp_min = Math.round(forecast.main.temp_min)
     forecastElement.innerHTML += `
     <div class="col-2">
       <h3>
@@ -137,10 +144,12 @@ function displayForecast(response) {
         src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
       />
       <div class="weather-forecast-temperature">
-        <strong>
+        <strong class="temperatureDisplay" data-celsius-temp="${forecast.main.temp_max}">
           ${Math.round(forecast.main.temp_max)}°
         </strong>
+        <strong class="temperatureDisplay" data-celsius-temp="${forecast.main.temp_min}">
         ${Math.round(forecast.main.temp_min)}°
+        </strong>
       </div>
     </div>
   `;
