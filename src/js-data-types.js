@@ -82,7 +82,7 @@ function getTemperature(response) {
   let iconElement = document.querySelector("#icon");
   temperatureElement.innerHTML = Math.round
   descriptionElement.innerHTML = response.data.weather[0].description;
-  iconElement.setAttribute ("src",'https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png');
+  iconElement.setAttribute ("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
   temperatureElement.innerHTML = temperature;
  // (response.data.main.temp);
@@ -111,6 +111,7 @@ form.addEventListener("submit", getCity);
 
 // show forecast
 function displayForecast(response) {
+  debugger;
   console.log("Test getting forecast");
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
@@ -151,12 +152,18 @@ function showPosition(position) {
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(displayForecast);
+
 }
 
-function getCurrentPosition(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(showPosition);
+function showPositionError(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
 }
+
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(showPosition, showPositionError);
+}
+
+getCurrentPosition()
 
 // let userLocation = document.querySelector("#user-location");
 // userLocation.addEventListener("click", getCurrentPosition);
