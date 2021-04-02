@@ -116,6 +116,7 @@ form.addEventListener("submit", getCity);
 
 // show forecast
 function displayForecast(response) {
+  console.log("Test getting forecast");
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
