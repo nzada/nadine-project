@@ -111,7 +111,6 @@ form.addEventListener("submit", getCity);
 
 // show forecast
 function displayForecast(response) {
-  debugger;
   console.log("Test getting forecast");
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
@@ -150,19 +149,15 @@ function showPosition(position) {
   apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(getTemperature);
 
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchInput}&appid=${apiKey}&units=${unit}`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(displayForecast);
-
-}
-
-function showPositionError(err) {
-  console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 
 function getCurrentPosition() {
-  navigator.geolocation.getCurrentPosition(showPosition, showPositionError);
+  navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+// Get the position when the screen loads
 getCurrentPosition()
 
 // let userLocation = document.querySelector("#user-location");
