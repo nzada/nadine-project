@@ -1,6 +1,7 @@
 #weather-app-wrapper {
   max-width: 600px;
   margin: 30px auto;
+  margin-top: 15px;
 }
 
 #weatherApp {
@@ -28,9 +29,10 @@
 h1 {
   color: #4a154b;
   font-size: 28px;
-  line-height: 28px;
-  font-weight: 220;
+  line-height: 32px;
+  font-weight: 600;
   margin-bottom: 0;
+  margin-top: 20;
 }
 
 h3 {
