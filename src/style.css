@@ -8,7 +8,6 @@
   border: 1px solid #000000;
   border-radius: 5px;
   background-color: white;
-  box-sizing: border-box;
 }
 
 #temperature {
@@ -26,7 +25,7 @@
 }
 
 h1 {
-  color: #4a154b;
+  color: #e01e5a;
   font-size: 28px;
   line-height: 32px;
   font-weight: 600;
