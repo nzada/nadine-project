@@ -144,10 +144,10 @@ function displayForecast(response) {
         src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
       />
       <div class="weather-forecast-temperature">
-        <strong class="temperatureDisplay" data-celsius-temp="${forecast.main.temp_max}" class="temperature-min">
+        <strong class="temperatureDisplay" data-celsius-temp="${forecast.main.temp_max}">
           ${Math.round(forecast.main.temp_max)}°
         </strong>
-        <strong class="temperatureDisplay" data-celsius-temp="${forecast.main.temp_min}">
+        <strong class="temperatureDisplay" data-celsius-temp="${forecast.main.temp_min}" class="temperature-min">
         ${Math.round(forecast.main.temp_min)}°
         </strong>
       </div>
