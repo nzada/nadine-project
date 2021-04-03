@@ -14,20 +14,21 @@
 
 <body>
     <div class="container">
-        <div id="weatherApp">
-            <form id="searchbox" class="mb-3">
-                <div class="row">
-                    <div class="col-9">
+        <div class="weather-app-wrapper"></div>
+            <div id="weatherApp">
+                 <form id="searchbox" class="mb-3">
+                    <div class="row">
+                        <div class="col-9">
                         <input type="text" placeholder="Type a city..." class="form-control" id="city-input" autocomplete="off" autofocus="on" />
-                    </div>
-                    <div class="col-3">
+                        </div>
+                        <div class="col-3">
                         <input type="submit" value="Search" class="btn btn-primary w-100" />
+                     </div>
                     </div>
-                </div>
-            </form>
-            <!-- Search bar and button -->
+                </form>
+                <!-- Search bar and button -->
 
-            <div class="row mt-7">
+                <div class="row mt-7">
                 <div class="col-12">
                     <h1>
                         Dublin
@@ -53,11 +54,12 @@
                         </span>
                     </div>
                 </div>
-            </div>
-            <!-- City name and weather type -->
+                </div>
+                 <!-- City name and weather type -->
 
-            <div class="weather-forecast row" id="forecast"> </div>
-            <!-- forecast -->
+                <div class="weather-forecast row" id="forecast"> </div>
+                <!-- forecast -->
+            </div>
         </div>
         <small>
             <a href="https://github.com/nzada/nadine-project" target="_blank">Open-source code</a>, by Nadine Zada 
