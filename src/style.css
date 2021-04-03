@@ -1,8 +1,12 @@
-#weatherApp {
+#weather-app-wrapper {
   max-width: 600px;
-  margin: 100px auto;
+  margin: 30px auto;
+}
+
+#weatherApp {
   padding: 20px;
   border: 1px solid #000000;
+  border-radius: 5px;
   background-color: white;
   box-sizing: border-box;
 }
@@ -55,16 +59,21 @@ li:first-letter {
 }
 
 .weather-forecast {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
   color: #000;
   opacity: 0.5;
 }
 
+weather-forecast img {
+  display: block;
+  margin: 0 auto;
+  height: 64px;
+  width: 64px;
+}
+
 .weather-forecast-temperature {
   font-size: 13px;
-  line-height: 15px;
-  white-space: nowrap;
 }
 
 body {
