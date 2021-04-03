@@ -147,7 +147,7 @@ function displayForecast(response) {
         <strong class="temperatureDisplay" data-celsius-temp="${forecast.main.temp_max}">
           ${Math.round(forecast.main.temp_max)}°
         </strong>
-        <strong class="temperatureDisplay" data-celsius-temp="${forecast.main.temp_min}" class="temperature-min">
+        <strong class="temperatureDisplay" data-celsius-temp="${forecast.main.temp_min}" id="temperature-min">
         ${Math.round(forecast.main.temp_min)}°
         </strong>
       </div>
