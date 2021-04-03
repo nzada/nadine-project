@@ -26,7 +26,7 @@
 }
 
 h1 {
-  color: #4a154b;
+  color: #e01e5a;
   font-size: 28px;
   line-height: 32px;
   font-weight: 600;
@@ -78,5 +78,5 @@ weather-forecast img {
 body {
   display: block;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lato", sans-serif;
 }
